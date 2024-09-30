@@ -3,17 +3,14 @@
 
 cmake_minimum_required(VERSION 3.22.1)
 
-project("ndk_sandbox")
+project("game_engine")
 
 # Creates your game shared library. The name must be the same as the
 # one used for loading in your Kotlin/Java or AndroidManifest.txt files.
-add_library(ndk_sandbox SHARED
+add_library(game_engine SHARED
         main.cpp
         AndroidOut.cpp
-        Renderer.cpp
-        Shader.cpp
-        TextureAsset.cpp
-        Utility.cpp)
+)
 
 # Searches for a package provided by the game activity dependency
 find_package(oboe REQUIRED CONFIG)
@@ -24,7 +21,7 @@ find_package(games-performance-tuner REQUIRED CONFIG)
 find_package(com.google.android.gms.gni.c REQUIRED CONFIG)
 
 # Configure libraries CMake uses to link your target library.
-target_link_libraries(ndk_sandbox
+target_link_libraries(game_engine
         # The game activity
         game-activity::game-activity
         # EGL and other dependent libraries required for drawing
